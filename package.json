@@ -1,0 +1,20 @@
+{
+  "name": "3j_pam2_2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm i -g @angular/core @angular/cli && ng version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lucas-Nicoletti/3j_pam2_2021.git"
+  },
+  "author": "Lucas Nicoletti Theobaldo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lucas-Nicoletti/3j_pam2_2021/issues"
+  },
+  "homepage": "https://github.com/Lucas-Nicoletti/3j_pam2_2021#readme"
+}
