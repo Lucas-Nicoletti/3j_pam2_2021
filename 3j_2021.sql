@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 12-Ago-2021 às 03:40
--- Versão do servidor: 5.6.25-log
--- PHP Version: 7.1.7
+-- Host: localhost:3306
+-- Tempo de geração: 02/09/2021 às 01:35
+-- Versão do servidor: 10.4.18-MariaDB
+-- Versão do PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `3j_2021`
+-- Banco de dados: `3j_2021`
 --
+DROP DATABASE IF EXISTS `3j_2021`;
+CREATE DATABASE IF NOT EXISTS `3j_2021` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `3j_2021`;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `clientes`
+-- Estrutura para tabela `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -36,24 +38,35 @@ CREATE TABLE `clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Despejando dados para a tabela `clientes`
+--
+
+INSERT INTO `clientes` (`cliente_id`, `nome`, `login`, `senha`) VALUES
+(1, 'José da Silva', 'jsilva', '123'),
+(2, 'Maria Oliveira', 'maoliveira', '321'),
+(3, 'João Maria Goes', 'jmgoes', '456'),
+(4, 'Ana Lúcia Oliveira', 'analu', '765');
+
+--
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `clientes`
+-- Índices de tabela `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`cliente_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `clientes`
+-- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `cliente_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
