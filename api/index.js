@@ -193,11 +193,11 @@ servidor.get("/clientes/:criterio", (req, res, next) => {
     })
 })
 
-servidor.get("/clientes/:id_iniciar/:id_final", (req, res, next) => {
+servidor.get("/clientes/:id_inicial/:id_final", (req, res) => {
   let id1 = req.params.id_inicial
   let id2 = req.params.id_final
 
-  const QUERY = `SELECT * FROM clientes WHERE clientes_id >= ${id1} AND clientes_id <= ${id2} ORDER BY cliente_id`
+  const QUERY = `SELECT * FROM clientes WHERE cliente_id >= ${id1} AND cliente_id <= ${id2} ORDER BY cliente_id`
   
    banco.getConnection((error, conn) => {
     if(error){
