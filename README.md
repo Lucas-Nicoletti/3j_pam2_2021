@@ -13,17 +13,12 @@
 
 
 => Insomnia
-1- Recuperar todos os clientes (GET)
-- http://localhost:3000/clientes
-2- Excluir um cliente pelo ID (DEL)
-- http://localhost:3000/cliente/3
-3- Alteração de dados do cliente (PATHC)
-- http://localhost:3000/cliente/2
-4-Cadastrar cliente (POST)
--http://localhost:3000/cliente
-
-
-
 
 => json viewer
+
+=> Github
+
+git config --global user.name = "Lucas-Nicoletti"
+
+git config --global user.email = "lucas.theobaldo@etec.sp.gov.br"
 

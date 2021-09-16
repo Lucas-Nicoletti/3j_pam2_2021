@@ -80,10 +80,31 @@ servidor.delete("/cliente/:id", (req, res, next) => {
 
 servidor.patch("/cliente/:id", (req, res, next) => {
   let id = req.params.id
+  let body = req.body
+  const SQL = `UPDATE clientes SET nome = '${body.nome}', login = '${body.login}',  senha = '${body.senha}' WHERE cliente_id = ${id}`
 
-  return res.status(200).send({
-    Verbo: 'patch',
-    Mensagem: `Id capturado ${id}`
+  banco.getConnection((erro, con) => {
+    if(erro){
+      return res.status(500).send({
+        mensagem: 'Erro no servidor',
+        detalhes: error
+      })
+    }
+
+    con.query(SQL, (erro, result) => {
+      con.release()
+
+      if(erro){
+        return res.status(500).send({
+          mensagem: 'Erro ao atualizar o cadastro',
+          detalhes: error
+        })
+      }
+
+      return res.status(200).send({
+        mensagem: 'Cliente atualizado com sucesso!'
+      })
+    })
   })
 })
 
@@ -170,6 +191,38 @@ servidor.get("/clientes/:criterio", (req, res, next) => {
             })
         })
     })
+})
+
+servidor.get("/clientes/:id_iniciar/:id_final", (req, res, next) => {
+  let id1 = req.params.id_inicial
+  let id2 = req.params.id_final
+
+  const QUERY = `SELECT * FROM clientes WHERE clientes_id >= ${id1} AND clientes_id <= ${id2} ORDER BY cliente_id`
+  
+   banco.getConnection((error, conn) => {
+    if(error){
+      return res.status(500).send({
+          Erro: "Não foi possível atender à solicitação",
+          Detalhes: error
+      })
+    }
+
+    conn.query(QUERY, (error, resultado) => {
+        conn.release()
+
+        if(error){
+          return res.status(500).send({
+            Erro: "Não foi possível atender à solicitação",
+            Detalhes: error
+        })
+        }
+
+        return res.status(200).send({
+          Mensagem: "Consulta realizada com sucesso",
+          Dados: resultado
+        })
+     })
+  })
 })
 
 servidor.get("/", (req, res, next) => {
